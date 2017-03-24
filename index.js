@@ -13,24 +13,6 @@ $(document).ready(function() {
     getPeople();
   })
 
-  var friendArray = $('.friend')
-  var idArray = []
-  var endArray = []
-  for (var i = 0; i < friendArray.length; i++) {
-    idArray.push(friendArray[i].id);
-  }
-  for (var i = 0; i < friendArray.length; i++) {
-    endArray.push("#".concat(friendArray[i].id));
-  }
-  var string = endArray.join(', ');
-  debugger
-
-  $(string).click(function(event) {
-    debugger
-    event.preventDefault();
-    showPerson(event.target.id);
-  })
-
 })
 
 function getPeople() {
@@ -51,6 +33,24 @@ function getPeople() {
     $('.add-form').show();
     $('.name-field')[0].value = "";
     $('.city-field')[0].value = "";
+    clickPerson();
+  })
+}
+
+function clickPerson() {
+  var friendArray = $('.friend')
+  var idArray = []
+  var endArray = []
+  for (var i = 0; i < friendArray.length; i++) {
+    idArray.push(friendArray[i].id);
+  }
+  for (var i = 0; i < friendArray.length; i++) {
+    endArray.push("#".concat(friendArray[i].id));
+  }
+  var string = endArray.join(', ');
+  $(string).click(function(event) {
+    event.preventDefault();
+    showPerson(event.target.id);
   })
 }
 
