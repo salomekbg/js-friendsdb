@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.back-button').hide();
+  $('.back-button, .edit-button, .delete-button').hide();
 
   getPeople();
 
@@ -12,7 +12,6 @@ $(document).ready(function() {
     event.preventDefault();
     getPeople();
   })
-
 })
 
 function getPeople() {
@@ -30,6 +29,8 @@ function getPeople() {
       };
     }
     $('.back-button').hide();
+    $('.edit-button').hide();
+    $('.delete-button').hide();
     $('.add-form').show();
     $('.name-field')[0].value = "";
     $('.city-field')[0].value = "";
@@ -72,6 +73,8 @@ function showPerson(id) {
     $('.result')[0].innerHTML = "";
     $('.result').append(`<h3>Name: ${result.name}</a></h3><h3>Favorite City: ${result.favoriteCity}</h3>`);
     $('.back-button').show();
+    $('.edit-button').show();
+    $('.delete-button').show();
     $('.add-form').hide();
   })
 }

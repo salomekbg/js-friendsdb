@@ -1,3 +1,13 @@
 .friend:hover {
   cursor: pointer;
 }
+
+.back-button {
+  float:left;
+  margin-right: 10px;
+}
+
+.edit-button {
+  float:left;
+  margin-right: 10px;
+}
