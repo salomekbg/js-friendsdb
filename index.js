@@ -12,6 +12,11 @@ $(document).ready(function() {
     event.preventDefault();
     getPeople();
   })
+
+  $('.delete-button').click(function(event) {
+    event.preventDefault();
+    deletePerson($('h3')[0].id);
+  })
 })
 
 function getPeople() {
@@ -77,5 +82,13 @@ function showPerson(id) {
     $('.delete-button').show();
     $('.add-form').hide();
   })
+}
 
+function deletePerson(id) {
+  $.ajax({
+    url: `http://localhost:3000/people/${id}`,
+    method: "DELETE"
+  }).done(function() {
+    getPeople()
+  })
 }
