@@ -25,7 +25,7 @@ function getPeople() {
     } else {
       $('.result').append("<h3>Here is the list of your friends:</h3>");
       for (var i = 0; i < result.length; i++) {
-        $('.result').append("<h4 class='friend' id='"+ result[i].id + "'>" + result[i].name + "</h4>");
+        $('.result').append(`<h4 id=${result[i].id}>${result[i].name}</h4>`);
       };
     }
     $('.back-button').hide();
@@ -39,7 +39,7 @@ function getPeople() {
 }
 
 function clickPerson() {
-  var friendArray = $('.friend')
+  var friendArray = $('h4')
   var idArray = []
   var endArray = []
   for (var i = 0; i < friendArray.length; i++) {
@@ -71,10 +71,11 @@ function showPerson(id) {
     method: "GET"
   }).done(function(result) {
     $('.result')[0].innerHTML = "";
-    $('.result').append(`<h3>Name: ${result.name}</a></h3><h3>Favorite City: ${result.favoriteCity}</h3>`);
+    $('.result').append(`<h3 id=${result.id}>Name: ${result.name}</a></h3><h3>Favorite City: ${result.favoriteCity}</h3>`);
     $('.back-button').show();
     $('.edit-button').show();
     $('.delete-button').show();
     $('.add-form').hide();
   })
+
 }
