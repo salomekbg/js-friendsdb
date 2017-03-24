@@ -49,6 +49,8 @@ function getPeople() {
     }
     $('.back-button').hide();
     $('.add-form').show();
+    $('.name-field')[0].value = "";
+    $('.city-field')[0].value = "";
   })
 }
 
