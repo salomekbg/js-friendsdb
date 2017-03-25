@@ -1,3 +1,4 @@
+/*style body of page*/
 body {
   background: url(city_pattern1.jpg);
   background-color: black;
@@ -6,6 +7,7 @@ body {
   padding: 0;
 }
 
+/*style main div of information*/
 .all {
   background-color: white;
   width: 60%;
@@ -17,19 +19,41 @@ body {
   overflow: scroll;
 }
 
+/*style main site title*/
 h1 {
   text-shadow: 1px 1px 3px black;
 }
 
-h4:hover {
-  cursor: pointer;
-  color: grey;
+/*style friend instances*/
+.friend {
+  background: none;
+  border: none;
+  font-size: 16px;
 }
-/*
-.back-button {
-  margin-right: 10px;
-}*/
 
-/*.edit-button {
+/*style friend instances upon hover*/
+.friend:hover {
+  cursor: pointer;
+  color: #00CFE8;
+}
+
+/*space out buttons*/
+.back-button, .edit-button, .update-button, .cancel-button {
   margin-right: 10px;
-}*/
+}
+
+/*style other buttons*/
+.add-button, .back-button, .back-button-copy, .edit-button, .delete-button, .update-button, .cancel-button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+input[type=text] {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-right: 5px;
+}

@@ -8,7 +8,7 @@ $(document).ready(function() {
     addPerson($('.add-name-field')[0].value, $('.add-city-field')[0].value);
   })
 
-  $('.back-button').click(function(event) {
+  $('.back-button, .back-button-copy').click(function(event) {
     event.preventDefault();
     getPeople();
   })
@@ -27,6 +27,11 @@ $(document).ready(function() {
     event.preventDefault();
     updatePerson($('.edit-name-field')[0].id, $('.edit-name-field')[0].value, $('.edit-city-field')[0].value);
   })
+
+  $('.cancel-button').click(function(event) {
+    event.preventDefault();
+    showPerson($('.edit-name-field')[0].id);
+  })
 })
 
 function getPeople() {
@@ -40,7 +45,7 @@ function getPeople() {
     } else {
       $('.result').append("<h3>Here is the list of your friends:</h3>");
       for (var i = 0; i < result.length; i++) {
-        $('.result').append(`<h4 id=${result[i].id}>${result[i].name}</h4>`);
+        $('.result').append(`<button class="friend" id=${result[i].id}>${result[i].name}</button><br /><br />`);
       };
     }
     $('.back-button').hide();
@@ -55,7 +60,7 @@ function getPeople() {
 }
 
 function clickPerson() {
-  var friendArray = $('h4')
+  var friendArray = $('.friend')
   var idArray = []
   var endArray = []
   for (var i = 0; i < friendArray.length; i++) {
@@ -117,6 +122,7 @@ function editPerson(id) {
     method: "GET"
   }).done(function(result) {
     $('.result')[0].innerHTML = "";
+    $('.back-button').hide();
     $('.edit-form').show();
     $('.edit-name-field')[0].id = result.id;
     $('.edit-name-field')[0].value = result.name;
