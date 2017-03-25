@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Macondo');
+
 /*style body of page*/
 body {
   background: url(city_pattern1.jpg);
@@ -5,6 +7,8 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
 }
 
 /*style main div of information*/
@@ -22,13 +26,16 @@ body {
 /*style main site title*/
 h1 {
   text-shadow: 1px 1px 3px black;
+  font-family: 'Macondo', cursive;
+  font-size: 3em;
 }
 
 /*style friend instances*/
 .friend {
   background: none;
   border: none;
-  font-size: 16px;
+  font-size: 18px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 /*style friend instances upon hover*/
@@ -49,6 +56,8 @@ h1 {
   border: 1px solid white;
   padding: 10px;
   border-radius: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 14px;
 }
 
 /*style button when mouseover*/
@@ -71,6 +80,7 @@ input[type=text] {
   border: 2px solid black;
   border-radius: 5px;
   margin-right: 5px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 /*style focus for text areas only*/
