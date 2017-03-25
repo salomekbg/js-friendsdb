@@ -46,14 +46,39 @@ h1 {
 .add-button, .back-button, .back-button-copy, .edit-button, .delete-button, .update-button, .cancel-button {
   background-color: black;
   color: white;
-  border: none;
+  border: 1px solid white;
   padding: 10px;
   border-radius: 5px;
 }
 
+/*style button when mouseover*/
+.add-button:hover, .back-button:hover, .back-button-copy:hover, .edit-button:hover, .delete-button:hover, .update-button:hover, .cancel-button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+/*style buttons when clicked on*/
+.add-button:active, .back-button:active, .back-button-copy:active, .edit-button:active, .delete-button:active, .update-button:active, .cancel-button:active {
+  background-color: #00CFE8;
+  color: black;
+  border: 1px solid black;
+}
+
+/*style text input*/
 input[type=text] {
   padding: 10px;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 5px;
   margin-right: 5px;
+}
+
+/*remove focus from all inputs*/
+input:focus, button {
+  outline: none;
+}
+
+/*style focus for text areas only*/
+textarea:focus{
+  border: 2px dashed #00CFE8;
 }
