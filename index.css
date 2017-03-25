@@ -73,12 +73,12 @@ input[type=text] {
   margin-right: 5px;
 }
 
+/*style focus for text areas only*/
+input[type=text]:focus{
+  border: 2px dashed #00CFE8;
+}
+
 /*remove focus from all inputs*/
 input:focus, button {
   outline: none;
-}
-
-/*style focus for text areas only*/
-textarea:focus{
-  border: 2px dashed #00CFE8;
 }
