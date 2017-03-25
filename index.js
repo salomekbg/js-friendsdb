@@ -1,11 +1,11 @@
 $(document).ready(function() {
-  $('.back-button, .edit-button, .delete-button').hide();
+  $('.back-button, .edit-button, .delete-button, .edit-form').hide();
 
   getPeople();
 
   $('.add-button').click(function(event) {
     event.preventDefault();
-    addPerson($('.name-field')[0].value, $('.city-field')[0].value);
+    addPerson($('.add-name-field')[0].value, $('.add-city-field')[0].value);
   })
 
   $('.back-button').click(function(event) {
@@ -16,6 +16,16 @@ $(document).ready(function() {
   $('.delete-button').click(function(event) {
     event.preventDefault();
     deletePerson($('h3')[0].id);
+  })
+
+  $('.edit-button').click(function(event) {
+    event.preventDefault();
+    editPerson($('h3')[0].id);
+  })
+
+  $('.update-button').click(function(event) {
+    event.preventDefault();
+    updatePerson($('.edit-name-field')[0].id, $('.edit-name-field')[0].value, $('.edit-city-field')[0].value);
   })
 })
 
@@ -37,8 +47,9 @@ function getPeople() {
     $('.edit-button').hide();
     $('.delete-button').hide();
     $('.add-form').show();
-    $('.name-field')[0].value = "";
-    $('.city-field')[0].value = "";
+    $('.add-name-field')[0].value = "";
+    $('.add-city-field')[0].value = "";
+    $('.edit-form').hide();
     clickPerson();
   })
 }
@@ -60,28 +71,35 @@ function clickPerson() {
   })
 }
 
-function addPerson(name, favoriteCity) {
-  $.ajax({
-    url: 'http://localhost:3000/people/',
-    method: "POST",
-    data: {data: {name, favoriteCity}}
-  }).done(function(result){
-    showPerson(result.id)
-  })
-}
-
 function showPerson(id) {
   $.ajax({
     url: `http://localhost:3000/people/${id}`,
     method: "GET"
   }).done(function(result) {
     $('.result')[0].innerHTML = "";
-    $('.result').append(`<h3 id=${result.id}>Name: ${result.name}</a></h3><h3>Favorite City: ${result.favoriteCity}</h3>`);
+    $('.result').append(`<h3 id=${result.id}>Name: ${result.name}</h3><h3>Favorite City: ${result.favoriteCity}</h3>`);
     $('.back-button').show();
     $('.edit-button').show();
     $('.delete-button').show();
     $('.add-form').hide();
+    $('.edit-form').hide();
   })
+}
+
+function addPerson(name, favoriteCity) {
+  if (name === "" || favoriteCity === "") {
+    $('.result')[0].innerHTML = "";
+    $('.result').append('<h3>Please enter BOTH a name and a favorite city.  One of your fields is not filled out!</h3>')
+    $('.back-button').show();
+  } else {
+    $.ajax({
+      url: 'http://localhost:3000/people/',
+      method: "POST",
+      data: {data: {name, favoriteCity}}
+    }).done(function(result){
+      showPerson(result.id)
+    })
+  }
 }
 
 function deletePerson(id) {
@@ -90,5 +108,30 @@ function deletePerson(id) {
     method: "DELETE"
   }).done(function() {
     getPeople()
+  })
+}
+
+function editPerson(id) {
+  $.ajax({
+    url: `http://localhost:3000/people/${id}`,
+    method: "GET"
+  }).done(function(result) {
+    $('.result')[0].innerHTML = "";
+    $('.edit-form').show();
+    $('.edit-name-field')[0].id = result.id;
+    $('.edit-name-field')[0].value = result.name;
+    $('.edit-city-field')[0].value = result.favoriteCity;
+    $('.edit-button').hide();
+    $('.delete-button').hide();
+  })
+}
+
+function updatePerson(id, name, favoriteCity) {
+  $.ajax({
+    url: `http://localhost:3000/people/${id}`,
+    method: "PUT",
+    data: {data: {name, favoriteCity}}
+  }).done(function(result) {
+    showPerson(id);
   })
 }

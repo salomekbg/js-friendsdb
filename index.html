@@ -8,29 +8,36 @@
     <title>FriendsDB</title>
   </head>
   <body>
-    <h1>Welcome to the FriendsDB!</h1>
+    <div class="all">
+      <h1>Welcome to the FriendsDB!</h1>
 
-    <div class="result">
+      <div class="add-form">
+        <form>
+          <label>Name:</label>
+          <input type="text" placeholder="Name" class="add-name-field">
+          <label>Favorite City:</label>
+          <input type="text" placeholder="Favorite City" class="add-city-field">
+          <input type="submit" name="" value="Add a Friend" class="add-button">
+        </form>
+      </div>
+      
+      <div class="result">
+      </div>
 
-    </div>
-    <div class="add-form">
-      <form>
-        <label>Name:</label>
-        <input type="text" placeholder="Name" class="name-field">
-        <label>Favorite City:</label>
-        <input type="text" placeholder="Favorite City" class="city-field">
-        <input type="submit" name="" value="Add a Friend" class="add-button">
-      </form>
-    </div>
-    <div class="buttons">
-      <div class="back-button">
-        <br/><button type="button">Go Back</button>
+      <div class="edit-form">
+        <form>
+          <label>Name:</label>
+          <input type="text" class="edit-name-field">
+          <br /><br />
+          <label>Favorite City:</label>
+          <input type="text" class="edit-city-field">
+          <br /><br />
+          <input type="submit" name="" value="Update Friend" class="update-button">
+        </form>
       </div>
-      <div class="edit-button">
-        <br/><button type="button">Edit Friend</button>
-      </div>
-      <div class="delete-button">
-        <br/><button type="button">Delete Friend</button>
+
+      <div class="buttons">
+        <button type="button" class="back-button">Go Back</button><button type="button" class="edit-button">Edit Friend</button><button type="button" class="delete-button">Delete Friend</button>
       </div>
     </div>
   </body>

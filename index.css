@@ -1,13 +1,35 @@
+body {
+  background: url(city_pattern1.jpg);
+  background-color: black;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.all {
+  background-color: white;
+  width: 60%;
+  padding: 10px 0 10px 0;
+  position: absolute;
+  margin-left: 20%;
+  top: 0;
+  bottom: 0;
+  overflow: scroll;
+}
+
+h1 {
+  text-shadow: 1px 1px 3px black;
+}
+
 h4:hover {
   cursor: pointer;
+  color: grey;
 }
-
+/*
 .back-button {
-  float:left;
   margin-right: 10px;
-}
+}*/
 
-.edit-button {
-  float:left;
+/*.edit-button {
   margin-right: 10px;
-}
+}*/
