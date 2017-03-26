@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 function getPeople() {
   $.ajax({
-    url: 'http://localhost:3000/people',
+    url: 'https://rails-friendsdb.herokuapp.com/people',
     method: "GET",
   }).done(function(result){
     $('.result')[0].innerHTML = "";
@@ -78,7 +78,7 @@ function clickPerson() {
 
 function showPerson(id) {
   $.ajax({
-    url: `http://localhost:3000/people/${id}`,
+    url: `https://rails-friendsdb.herokuapp.com/people/${id}`,
     method: "GET"
   }).done(function(result) {
     $('.result')[0].innerHTML = "";
@@ -98,7 +98,7 @@ function addPerson(name, favoriteCity) {
     $('.back-button').show();
   } else {
     $.ajax({
-      url: 'http://localhost:3000/people/',
+      url: 'https://rails-friendsdb.herokuapp.com/people/',
       method: "POST",
       data: {data: {name, favoriteCity}}
     }).done(function(result){
@@ -109,7 +109,7 @@ function addPerson(name, favoriteCity) {
 
 function deletePerson(id) {
   $.ajax({
-    url: `http://localhost:3000/people/${id}`,
+    url: `https://rails-friendsdb.herokuapp.com/people/${id}`,
     method: "DELETE"
   }).done(function() {
     getPeople()
@@ -118,7 +118,7 @@ function deletePerson(id) {
 
 function editPerson(id) {
   $.ajax({
-    url: `http://localhost:3000/people/${id}`,
+    url: `https://rails-friendsdb.herokuapp.com/people/${id}`,
     method: "GET"
   }).done(function(result) {
     $('.result')[0].innerHTML = "";
@@ -134,7 +134,7 @@ function editPerson(id) {
 
 function updatePerson(id, name, favoriteCity) {
   $.ajax({
-    url: `http://localhost:3000/people/${id}`,
+    url: `https://rails-friendsdb.herokuapp.com/people/${id}`,
     method: "PUT",
     data: {data: {name, favoriteCity}}
   }).done(function(result) {
